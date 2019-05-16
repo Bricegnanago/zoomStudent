@@ -28,7 +28,7 @@
                         
         }else{
             $i = 0;
-            $sql = "SELECT *from etudiant";
+            $sql = "SELECT * from etudiant";
             $statement = $db->query($sql);
             /*$i !== count($_POST['heure'])*/
             while($row = $statement->fetch()) {

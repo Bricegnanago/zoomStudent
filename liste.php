@@ -121,8 +121,8 @@
                                                     <label for="week">Selectionner la semaine:</label>
                                                     <select class="form-control" id="week" name="week">
                                                         <!-- <option value=""></option> -->
-                                                        <option value="Semaine 1" selected>Semaine 1</option>
-                                                        <option value="Semaine 2">Semaine 2</option>
+                                                        <option value="Semaine 1" >Semaine 1</option>
+                                                        <option value="Semaine 2" selected >Semaine 2</option>
                                                         <option value="Semaine 3">Semaine 3</option>
                                                         <option value="Semaine 4">Semaine 4</option>
                                                     </select>
@@ -138,6 +138,7 @@
                                             <th>Nom</th>
                                             <th>Prénom</th>
                                             <th> Heure Mois </th>
+                                            <th> Plus d'info </th>
                                             
                                             </tr>
                                             <tbody id="result">

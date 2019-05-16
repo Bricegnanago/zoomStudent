@@ -1,0 +1,49 @@
+
+.centrer{
+    width: 50%;
+    position: absolute;
+    text-align: center;
+    
+    padding: 20px 50px 20px 50px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    height:450px;
+    border-radius: 25px;
+}
+.h2{
+    text-shadow: 2px 2px rgb(104, 104, 104);
+}
+.opacity{
+    background-color: rgb(15, 49, 25);
+    opacity: 0.5;
+}
+a{
+    font-size: 1rem;
+    color: beige;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+a:hover{
+    color: rgb(128, 240, 133); 
+}
+label{
+    font-size: 1rem;
+    color:black;
+    font-family: Arial, Georgia, 'Times New Roman', Times, serif;
+}
+
+
+/* FENETRE  ANDROID */
+@media (max-width: 500px) {
+    .centrer{
+        height: 400px;
+        width: 75%;
+        padding: 2px;
+    }
+    .media label, a{
+        font-size: 0.8rem;
+    }
+    img{
+        height: 400px;
+    }
+  }

@@ -1,5 +1,9 @@
 <?php     
     require "partials/functions.php";
+    $mois  = array('', "Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre");
+
+    logged_only();
+    debug($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +38,7 @@
 										<input class="searchbar-input searchbar-query-input searchbar-query-input-opened valid" placeholder="Quel(le) classe, Institut…">
 									</div>
 								</div>
-					</div>
+                    </div>                    
 					<div class="searchbar-query">
 						<div class="searchbar-input-wrapper">
 								<i class="fas fa-user-graduate"></i>
@@ -62,10 +66,9 @@
                 <!-- Editable table -->
                
                     <div class="card mb-4">
-                         
-                            <h3 class="card-header text-center font-weight-bold text-uppercase py-4">LP1 Info (27)</h3>
-                            <a  href="liste.php" class="btn btn-success float-left mb-3 mr-2 ">Editer</a>
-                            <a  href="liste.php" class="btn btn-success float-left mb-3 mr-2 ">Formater cette page</a>
+                            
+                            <h3 class="card-header text-center font-weight-bold text-uppercase py-4" style="position: relative"> <i class="fa fa-print fa-2x" aria-hidden="true" style="color: lightgreen; cursor: pointer; position: absolute; left : 10px;top: 50%; transform: translateY(-50%); "></i>LP1 Info </h3>
+                            <a  href="liste.php" class="btn btn-success float-left mb-3 mr-2" id="edit">Editer</a>
                         <div class="container">
                         
                             <div class="row">
@@ -90,8 +93,9 @@
                                     <div class="form-group col-lg-12 my-3 m-auto">
                                     <!-- <label for="month" style="float: left" style="font-size: 1.3rem;">Selectionner mois:</label> -->
                                         <select name="multi_search_filter" id="multi_search_filter" multiple class="form-control" style="font-size: 1.2rem;">
-                                            <!-- <option value=""></option> -->
-                                            <option value="Janvier" selected>Janvier</option>
+                                            <!-- <option value=""></option> -->                                            
+                                            <option value="Decembre">Decembre</option>
+                                            <option value="Janvier">Janvier</option>
                                             <option value="Fevrier">Fevrier</option>
                                             <option value="Mars">Mars</option>
                                             <option value="Avril">Avril</option>
@@ -102,7 +106,6 @@
                                             <option value="Septembre">Septembre</option>
                                             <option value="Octobre">Octobre</option>
                                             <option value="Novembre">Novembre</option>
-                                            <option value="Decembre">Decembre</option>                                                        
                                         </select>
                                         <input type="hidden" name="hidden_country" id="hidden_country" />
                                         <div style="clear:both"></div>
@@ -112,7 +115,7 @@
                                                 <tr>
                                                 <th>Nom</th>
                                                 <th>Prénom</th>
-                                                <th class="add_text">Heure d'abscence par mois</th>                                                                                                
+                                                <th class="add_text">Heure par mois --- <?= $mois[date('n')]?></th>
                                                 </tr>
                                                 </thead>
                                                 <tbody style="font-size: 1.5rem!important;">
@@ -171,8 +174,16 @@ function load_data(query='')
     $('#multi_search_filter').change(function(){
     $('#hidden_country').val($('#multi_search_filter').val());
     var query = $('#hidden_country').val();
-    $(".add_text").html(" Heure / Mois --- " + $('#hidden_country').val())
-    load_data(query);
+    $(".add_text").html( $('#hidden_country').val())
+        load_data(query);
+    });
+
+    $(".fa-print").click(function(){
+        $(".logo").toggle("slow");
+        $(".searchbar").toggle("slow");
+        $("#multi_search_filter").toggle("slow");
+        $("#edit").toggle("slow");
+        $("#table").prepend("<img src='images/logo_AGITEL.png' alt='' class='logo' style='position: absolute; top: 0px; left: 67%; width: 250px;'>");      
     });
 
 });

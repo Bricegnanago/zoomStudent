@@ -1,0 +1,116 @@
+
+body{
+    background-color: rgb(68, 152, 209); 
+    height: auto;
+    width: 100%;
+}
+
+/* Partie header */
+.head{
+    background-color: rgb(41, 139, 204); 
+    height: 60px;
+    padding:3px ;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+}
+
+.head a{
+    color: black!important;
+}
+
+/* Partie identification */
+.identified{
+background-color: #fff;
+height: auto;
+position: relative;
+}
+
+.identified h1{
+    padding-top: 55px;
+    padding-bottom: 15px;
+    font-size: 1.8rem;
+    text-align: center;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    color: rgb(41, 139, 204);
+}
+.login{
+  text-align: center;
+  Width:650px;
+  font-size: 1rem;
+  position: relative;
+  transform: translate(-50%, 50%);
+  top:-200px;
+  left:50%;
+  font-family: Georgia, 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif; 
+}
+
+section{
+    position: relative;
+}
+.rdv {
+   /* background-color: rgb(6, 139, 100); */
+   /* width:50px; */
+   margin: 0px;
+   padding: 10px;
+   height: auto;
+}
+
+.rdv a{
+    font-family: "Montserrat", Arial, sans-serif;
+    font-weight: 400;
+}
+.box{
+    color:white;
+    background-color: rgb(112, 160, 112);
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: 10px;
+    height: 170px;
+    width: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* Nous contacter */
+footer{
+    margin-top: -47px;
+    
+}
+footer h6{
+    color:rgb(22, 116, 179); 
+}
+footer p{
+    color:black!important;
+}
+footer p:hover{
+    color:rgb(1, 23, 37)!important;
+    
+}
+
+/* FENETRE  TABLETTE */
+@media (max-width: 800px) {
+    .login{
+        text-align: center;
+        Width:500px;
+        font-size: .8rem;
+        position: relative;
+        transform: translate(-50%, 50%);
+        top:-200px;
+        left:50%;
+        font-family: Georgia, 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif; 
+      }
+  }
+
+
+/* FENETRE  ANDROID */
+  @media (max-width: 400px) {
+    .login{
+        text-align: center;
+        Width:300px;
+        font-size: .8rem;
+        position: relative;
+        transform: translate(-50%, 50%);
+        top:-200px;
+        left:50%;
+        font-family: Georgia, 'Times New Roman', Times, serif, Arial, Helvetica, sans-serif; 
+      }
+  }
+

@@ -10,7 +10,7 @@
      }
     $db = Database::connect();
     //  on recupère toutes les occurence de l'id pintni_rv"g
-    $statement = $db->prepare("SELECT * FROM marquer LEFT JOIN etudiant ON marquer.student_id = etudiant.code WHERE marquer.student_id = etudiant.code AND etudiant.code = ?");
+    $statement = $db->prepare("SELECT * FROM  etudiant");
     $statement->execute(array($id));
     $student = $statement->fetch();
     Database::disconnect();
@@ -19,15 +19,6 @@
 
 
 ?>
-
-
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,9 +38,7 @@
 	<div class="page">
 
 		<div class="wrapper">
-			<img src="images/logo_AGITEL.png" alt="" class="logo">			
-
-	
+			<img src="images/logo_AGITEL.png" alt="" class="logo">
 			<div class="container" style="">
 
 				<!--<div class="searchbar" style="margin-top: 50px;">
@@ -101,10 +90,10 @@
                                     <h5 class="card-header h5 text-success">Tableau de bord</h5>
                                     <div class="card-body">
                                         <ul class="list-group list-group-flush">
-                                                <li class="list-group-item"><?= $student["nom"] . " " . $student["prenom"]; ?></li>
-                                                <li class="list-group-item">Née le <?= $student["date_naissance"]; ?> A Bouaké</li>
-                                                <li class="list-group-item">Sexe : M</li>
-                                                <li class="list-group-item">N° Carte Etudiant : 10001838</li>                                                
+                                            <li class="list-group-item"><?= $student["nom"] . " " . $student["prenom"]; ?></li>
+                                            <li class="list-group-item">Née le <?= $student["date_naissance"]; ?> A Bouaké</li>
+                                            <li class="list-group-item">Sexe : M</li>
+                                            <li class="list-group-item">N° Carte Etudiant : 10001838</li>                                                
                                         </ul>
                                         
                                     </div>
@@ -116,25 +105,18 @@
                                     <div class="card-body">
                                             <table class="table table-default table-hover text-center">
                                                 <thead>
-                                                    <tr>
-                                                    <th>Année</th>
-                                                    <th>Période</th>
+                                                    <tr>                        
+                                                    <th>Mois</th>
                                                     <th>Nombre d'heures</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td class="text-left">2018</td>
-                                                        <td>Du 14 Dec au 14 Jan</td>
-                                                        <td ><span class="badge badge-danger ml-2">3</span></td>
-                                                    </tr>
-                                                    <tr>                                                    
-                                                        <td class="text-left">2018 - 2019</td>
+                                                    
+                                                    <tr>                                                                                                            
                                                         <td>Du 14 Jan au 14 Fev</td>
                                                         <td><span class="badge badge-danger ml-2">3</span></td>
                                                     </tr>                                                
-                                                    <tr>
-                                                        <td class="text-left">2019</td>
+                                                    <tr>                                                        
                                                         <td>Du 14 Fev au 14 Avr </td>
                                                         <td ><span class="badge badge-danger ml-2">3</span></td>
                                                     </tr>

@@ -59,6 +59,7 @@ if(isset($_POST["query_week"], $_POST["query_month"]))
               ?>
                 
             </td>
+            <td><a  href="student.view.php?id=<?= $row->code ?>" class="btn btn-danger btn-lg"><i class="fa fa-eye" aria-hidden="true" ></i> Voir</a></td>
     
           </tr>
           <?php

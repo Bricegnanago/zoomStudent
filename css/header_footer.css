@@ -1,0 +1,223 @@
+.navbar{
+    background-color: #0b3a52;
+}
+
+/* Couleur icone */
+.fa-user, .fa-question-circle{
+    color:#9bd5f2;
+} 
+/* mobile menu */
+
+.dl-menu-group {
+    padding: 0 14px;
+    margin: 0;
+    box-sizing: border-box;
+}
+.dl-menu-section {
+    position: absolute;
+    top:0px;
+}
+.dl-menu-item {
+    list-style: none;
+    color: white!important;
+    padding: 10px;
+    border-bottom: 1px solid white;
+}
+.dl-menu-item a{
+    color: white!important; 
+}
+.mobile-menu{
+    display: none;
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    top: 0;
+    left: -250px;
+    background-color: #224358;
+    z-index: 100;
+    transition: all 0.4s;
+    overflow-y: scroll;
+}
+
+/* FIN mobile menu */
+
+/* Navbar fin */
+
+    /* Navbar  */
+    .navbar{
+        padding: 0.25rem 0.5rem!important;
+        width: 100%;
+        box-shadow: 0px!important;
+    }
+    .navbar-nav{
+        padding-top:3px; 
+    }
+    /* Bouton de login du heaader */
+    .position-dropdown strong.subtitle {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-size: .9em;
+        opacity: .7;
+    }
+    .strong.title {
+        font-size: 1.5em;
+        margin-top: 0;
+        opacity: .7;
+    }
+    .position-dropdown strong {
+        display: block;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+       /*Icone user de la nav du header  */
+    .user-head{
+        margin-top: -6px;
+    }
+    .user-head .info-compte, .user-head .icon{ 
+        font-size: 0.89rem;
+        display: inline-block;
+        vertical-align:middle;
+    }
+    .fa-user{
+        font-size: 1.3rem;
+
+    }
+
+    /* Permet d'envoyer la nav a droite */
+    .nav-droite{
+        position:relative;
+        left: 40%;
+    }
+    /* Permet d'envoyer l'icone a droite */
+    .icone-droite{
+        position: absolute;
+        right:3%;
+    }
+      /* Donner du style au bouton de la nav du header */
+      .nav-droite a{
+        color:white;
+        font-weight: 400;   
+    }
+    .nav-droite li{
+        padding: 1px 15px 1px 15px!important;
+    }
+    .nav-droite .contour{
+        background-color: #0596de!important;
+        border:1px solid white!important;
+        color:white;
+        border-radius: 3px;
+
+    }
+    .nav-droite .contour:hover{
+        background-color: #fff!important;
+        color:#0596de!important;
+        font-weight: 700;  
+    }
+    .bt-header{
+        padding-top: 10px;
+        display: flex;
+        font-family: Arial, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 1rem;
+        text-align: center;
+        border-top: 1px solid rgb(180, 178, 178);
+    }
+    .bt-header a{
+        padding-left: 5px;
+        color: #0596de!important;
+    }
+    .bt-header a:hover{
+        text-decoration: underline;
+    }
+    .dropdown-toggle::after {
+    border: none!important;
+    }
+
+    .arrow-popin-new {
+        position: absolute;
+        display: block;
+        top: -14px;
+        right: 20px;
+        width: 0;
+        height: 0;
+        border-left: 14px solid transparent;
+        border-right: 14px solid transparent;
+        border-bottom: 14px solid #fff;
+    }
+    .position-dropdown{
+        position: absolute!important;
+        border-radius: 3px;
+        left: 200px!important;
+        width: 440px;
+        top: 70px;
+        padding: 5px 40px;
+        background-color: #fff;
+        z-index: 99999999;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+        display: none;
+    }
+footer p a{
+    color: #0596de!important;
+}
+@media (max-width: 1000px) {
+  
+    .logo-rdv{
+        position: absolute;
+        left: 40%;
+    }
+    .mobile-menu.active{
+        display: block;
+        position: fixed;
+        width: 250px;
+        height: 100%;
+        top: 0;
+        left: 0px;
+        background-color: #224358;
+        z-index: 100;
+        transition: all 15s;
+        overflow-y: scroll;
+    }
+    .overlay.active{  
+        position: fixed;
+        left: 250px;
+        top:0;
+        z-index: 50;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0, .1);
+    }
+ 
+  }
+  @media (max-width: 750px) {
+   
+    .cont .info{
+        font-size: .75rem;
+    }
+    
+    .contacts, .imge_head p{
+        display: none;
+    }
+  
+    
+  }
+@media (max-width: 601px) {
+   
+    .imge_head img{
+        width: auto;
+        height: 200px;    
+    }
+    .contacts, .imge_head p{
+        display: none;
+    }
+    
+    .info{
+      
+       margin: 0px;
+       padding: 0px;
+    }
+ 
+      .info li{
+     
+        width:100%; 
+      }
+    
+  }
