@@ -33,6 +33,12 @@
             /*$i !== count($_POST['heure'])*/
             while($row = $statement->fetch()) {
                     $req = $db->prepare("INSERT INTO marquer SET months= ?, week= ?, student_id = ?, hour = ?, save_At= NOW()");
+                    if(!ctype_digit($_POST['heure'][$i])){
+                        $verify_hour = $_POST['heure'][$i];
+                        $_SESSION["flash"]["data"] = "Entrée non prise en compte : '$verify_hour' n'est pas un entier" ;
+                        header('Location: liste.php');
+                        exit;
+                    }
                     if(!empty($_POST['heure'][$i]) && $_POST['heure'][$i] !== "0"){
                         $req->execute([$month, $week, $row["code"], $_POST['heure'][$i]]);
                     }    

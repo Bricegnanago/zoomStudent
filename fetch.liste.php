@@ -50,16 +50,27 @@ if(isset($_POST["query_week"], $_POST["query_month"]))
             <td><?= $row->prenom ?></td>    
             <td><?php
               if($boolian){?>
-                <input disabled  name="heure[]" type="text" value="<?= $heure ?>" style="box-shadow : 0 8px 4px 0 rgba(0,0,0, .1)!important">
+                <input disabled  name="heure[]" type="text" value="<?= $heure ?>" style="box-shadow : 0 8px 4px 0 rgba(0,0,0, .1)!important" class="animated zoomInDown">
                 <?php
               }else{?>              
-                <input type="text" name="heure[]" value="<?= $heure ?>" style="box-shadow : 0 8px 4px 0 rgba(0,0,0, .3)!important"> <?php
+                <input type="text" name="heure[]" value="<?= $heure ?>" style="box-shadow : 0 8px 4px 0 rgba(0,0,0, .3)!important" class="animated zoomInDown"> <?php
               }
               
               ?>
                 
             </td>
-            <td><a  href="student.view.php?id=<?= $row->code ?>" class="btn btn-danger btn-lg"><i class="fa fa-eye" aria-hidden="true" ></i> Voir</a></td>
+            <td class="text-center"><?php
+              if($boolian){?>
+                <a disabled  name="modif" href="modifheure.view.php?id=<?= $row->code ?>" class="btn btn-primary btn-lg animated zoomInDown" style="box-shadow : 0 8px 4px 0 rgba(0,0,0, .1)!important"><i class="fas fa-pen-alt"></i></a>
+                <?php
+              }else{
+                echo "-";
+              }
+              
+              ?>
+                
+            </td>
+            <td class="text-center"><a  href="student.view.php?id=<?= $row->code ?>" class="btn btn-danger btn-lg animated zoomInDown"><i class="fa fa-eye" aria-hidden="true" ></i></a></td>
     
           </tr>
           <?php
