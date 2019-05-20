@@ -2,7 +2,7 @@
 <?php
     require 'partials/functions.php';
     require 'db.php';
-     
+    logged_only();
 
      if(!empty($_GET['id'])) 
      {
@@ -10,9 +10,20 @@
      }
     $db = Database::connect();
     //  on recupère toutes les occurence de l'id pintni_rv"g
-    $statement = $db->prepare("SELECT * FROM  etudiant");
+    $statement = $db->prepare("SELECT * FROM  etudiant where code = ?");
     $statement->execute(array($id));
     $student = $statement->fetch();
+    
+    $statement_hour = 
+    $db->prepare("SELECT marquer.months, SUM(marquer.HOUR) AS heure
+                from marquer LEFT JOIN etudiant
+                ON marquer.student_id = etudiant.CODE 
+                WHERE marquer.HOUR IS NOT NULL AND 
+                etudiant.CODE = ? GROUP BY months");
+    $statement_hour->execute(array($id));    
+
+    
+    
     Database::disconnect();
 
      
@@ -79,7 +90,8 @@
                     <div class="card p-5">
                         
                         <div class="row">
-                            <div class="col-lg-12 mb-5" >
+                            <div class="col-lg-12 mb-5">
+                                <a href="liste.view.php" style=""><i class="fas fa-arrow-left fa-2x"></i></a><br>
                                 <div class="text-left h5 text-success" style="float: left;">Informatique - Licence 3</div>
                                 <div class="text-right h5 text-success"  style="float: right;">Année-universitaire</div>
                             </div>
@@ -111,15 +123,14 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    
-                                                    <tr>                                                                                                            
-                                                        <td>Du 14 Jan au 14 Fev</td>
-                                                        <td><span class="badge badge-danger ml-2">3</span></td>
-                                                    </tr>                                                
-                                                    <tr>                                                        
-                                                        <td>Du 14 Fev au 14 Avr </td>
-                                                        <td ><span class="badge badge-danger ml-2">3</span></td>
-                                                    </tr>
+                                                    <?php while($row = $statement_hour->fetch()){?>
+                                                        <tr>                                                                                                            
+                                                            <td><?= $row["months"]?></td>
+                                                            <td><span class="badge badge-danger ml-2"><?= $row["heure"] ?></span></td>
+                                                        </tr><?php
+                                                    }
+                                                           
+                                                    ?>
                                                 </tbody>
                                             </table>
                                             <div class="total  col-lg-12 p-2 mx-auto my-2 bg-success text-center text-white rounded "><span class="red h1">24H</span></div>

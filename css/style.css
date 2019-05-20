@@ -25,6 +25,14 @@ body {
 	/* background-attachment: fixed; */
 }
 
+.wrappers{
+	margin : 0 auto;
+	padding: 30px;
+	display: block;
+	width: 400px;
+}
+
+
 h1,
 h2,
 h3,
@@ -154,18 +162,20 @@ form input {
 	height: auto;
 	font-size: 1rem;
 	padding: .7rem;
-	width: 70px;
+	
 	text-align: center;
 	border: none;
-	display: block;
+	
 }
 
 
 
 form #email, form #password {
+	width: 70px;
 	border-radius: 5px;
 	width: 100%;
 	margin-top: 10px;
+	display: block;
 	
 }
 form #notify {
@@ -413,3 +423,33 @@ strong {
 .hide{
 	display: none;
 } */
+
+.logout{
+	position: fixed!important;
+	top: 30px !important;
+	right: 40px !important;
+}
+.logout:hover{
+	transform: scale(1.3, 1.3)!important;
+	transition: cubic-bezier(0.645, 0.045, 0.355, 1) all .4s !important;
+	color: orange !important;
+}
+select option:hover{
+	background-color: #fff;
+	color: #111111;
+	text-indent: 10px;
+	transition: .6s all cubic-bezier(0.19, 1, 0.22, 1);
+	font-weight: bold;
+}
+.btn-submit{
+	position:fixed!important; 
+	bottom:10px!important;
+	right:50px!important; width: 150px!important;
+
+}
+.bout:hover{
+	transform: scale(1.3, 1.3)!important;
+	transition: cubic-bezier(0.645, 0.045, 0.355, 1) all .4s !important;
+	background-color: #111111 !important;
+	color: white!important;
+}

@@ -1,15 +1,16 @@
 <?php
 //fetch.php
+session_start();
 $connect = new PDO('mysql:host=localhost;dbname=agitel', "root", "");
 $hourArray = array();
 if(isset($_POST["query_week"], $_POST["query_month"]))
 {
   
-
+  
   $search_month = trim(htmlspecialchars(stripcslashes($_POST["query_month"])));
   $search_week = trim(htmlspecialchars(stripcslashes($_POST["query_week"])));
- 
-
+  $_SESSION["month"] = $search_month;
+  $_SESSION["week"] = $search_week;
 
   $query = "SELECT * FROM etudiant";
   $sql = "SELECT marquer.hour AS heure, etudiant.nom, marquer.student_id from marquer LEFT JOIN etudiant ON marquer.student_id = etudiant.CODE  WHERE 
@@ -45,15 +46,16 @@ if(isset($_POST["query_week"], $_POST["query_month"]))
       
       ?>
           <tr>
-          <td><?= $row->code  ?></td>
-            <td><?= $row->nom ?></td>
-            <td><?= $row->prenom ?></td>    
-            <td><?php
+            <td class="animated zoomInDown"><?= $row->code  ?></td>
+            <td class="animated zoomInDown"><?= $row->nom ?></td>
+            <td class="animated zoomInDown"><?= $row->prenom ?></td>    
+            <td class="animated zoomInDown"><?php
               if($boolian){?>
-                <input disabled  name="heure[]" type="text" value="<?= $heure ?>" style="box-shadow : 0 8px 4px 0 rgba(0,0,0, .1)!important" class="animated zoomInDown">
+                <input disabled  name="heure[]" type="text" value="<?= $heure ?>" style="box-shadow : 0 8px 4px 0 rgba(0,0,0, .1)!important; width: 50px!important; height: 50px; border-radius : 50%!important;" class="animated zoomInDown m-auto">
                 <?php
               }else{?>              
-                <input type="text" name="heure[]" value="<?= $heure ?>" style="box-shadow : 0 8px 4px 0 rgba(0,0,0, .3)!important" class="animated zoomInDown"> <?php
+                <input type="text" name="heure[]" value="<?= $heure ?>" style="box-shadow : 0 8px 4px 0 rgba(0,0,0, .3)!important;  width: 70px!important; border-radius : 5px!important;     background-color: #ffffff;
+    color: #080000;" class="animated zoomInDown"> <?php
               }
               
               ?>
@@ -61,7 +63,7 @@ if(isset($_POST["query_week"], $_POST["query_month"]))
             </td>
             <td class="text-center"><?php
               if($boolian){?>
-                <a disabled  name="modif" href="modifheure.view.php?id=<?= $row->code ?>" class="btn btn-primary btn-lg animated zoomInDown" style="box-shadow : 0 8px 4px 0 rgba(0,0,0, .1)!important"><i class="fas fa-pen-alt"></i></a>
+                <a disabled  name="modif" href="update_hour.php?id=<?= $row->code ?>" class="btn btn-primary btn-lg animated zoomInDown" style="box-shadow : 0 4px 8px 0 rgba(0,0,0, .3)!important"><i class="fas fa-pen-alt"></i></a>
                 <?php
               }else{
                 echo "-";

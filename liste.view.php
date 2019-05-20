@@ -25,12 +25,12 @@
 	<div class="page">
 
 		<div class="wrapper">
-			<img src="images/logo_AGITEL.png" alt="" class="animated bounce infinite logo mt-3" alt="Transparent MDB Logo " id="animated-img1 " style=" width: 200px; float: left">
+			<img src="images/logo_AGITEL.png" alt="" class="animated bounce infinite logo mt-3" alt="Transparent MDB Logo " id="animated-img1 " style=" width: 200px; float: left"><a href="logout.php" class="float-right mr-5 logout text-white"><i class="fas fa-lock fa-3x"></i></a>
 
 	
 			<div class="container">
 
-				<div class="searchbar mt-3 mb-5" style="">
+				<div class="searchbar mt-3 mb-5 animated bounceInRight" style="" >
 					<div class="searchbar-query">
                         <div class="searchbar-input-wrapper br-right">
                             <i class="fas fa-search"></i> 
@@ -61,16 +61,21 @@
 							<i class="fas fa-chevron-right"></i>
 						</span>
 					</button>								
-                </div>
+                </div>                
                 <div class="clearfix"></div>                   
                
-                <div class="card mb-4 animated slideInLeft">
+                <div class="card mb-4 animated slideInLeft" style="background-color: #081715!important; color: white!important">
                         
-                    <h3 class="card-header text-center font-weight-bold text-uppercase py-4" style="position: relative">
-                    <i class="fas fa-print"></i>
-                        <i class="fa fa-print mr-3 float-left btn btn-success" aria-hidden="true" style="cursor: pointer;"></i>
-                        <a  href="liste.php" class="btn btn-success float-left mb-3 mx-auto mr-2" id="edit"><i class="fas fa-pen-alt"></i>
+                    <h3 class="card-header text-center font-weight-bold text-uppercase py-4" style="position: relative; background-color: rgb(8, 23, 21)!important; color: white!important; ">
+                    
+
+                        <a class="btn btn-success float-left mb-3 mr-3 mr-2 bout"  id="print" style="cursor: pointer; background-color: white; color: #111111; border: none">
+                            <i class="fas fa-print"></i>
                         </a>
+                        <a  href="liste.php" class="btn btn-success float-left mb-3 mx-auto mr-2 bout" id="edit"  style="cursor: pointer; background-color: white; color: #111111; border: none">
+                            <i class="fas fa-pen-alt"></i>
+                        </a>
+                            
                         LP1 Info
                     </h3>
                     
@@ -84,7 +89,7 @@
                                     
                                     <div class="form-group col-lg-12 my-3 m-auto ">
                                         <!-- <label for="month" style="float: left" style="font-size: 1.3rem;">Selectionner mois:</label> -->
-                                        <select name="multi_search_filter" id="multi_search_filter" multiple class="form-control" style="font-size: 1.2rem;">
+                                        <select name="multi_search_filter" id="multi_search_filter" multiple class="form-control" style="font-size: 1.2rem; background-color: #1a5f58; color: white;">
                                             <!-- <option value=""></option> -->                                            
                                             <option value="Decembre">Decembre</option>
                                             <option value="Janvier">Janvier</option>
@@ -102,7 +107,7 @@
                                         <input type="hidden" name="hidden_country" id="hidden_country" />
                                         <div style="clear:both"></div>
                                         <div class="table-responsive">
-                                            <table class="table table-striped table-bordered table-hover">
+                                            <table class="table table-striped  table-hover">
                                                 <thead style="font-size: 1.6rem!important;">
                                                 <tr>
                                                 <th>Nom</th>
@@ -168,7 +173,7 @@ function load_data(query='')
         load_data(query);
     });
 
-    $(".fa-print").click(function(){
+    $("#print").click(function(){
         $(this).toggleClass("animated tada");
         $(".logo").toggle("slow");
         $(".searchbar").toggle("slow");
