@@ -13,7 +13,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,400|Oxygen|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,400|Oxygen|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/search_bar.css">
     <link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -57,22 +58,22 @@
 					<button class="br-btn Tappable-inactive dl-button-primary searchbar-submit-button dl-button dl-button-size-normal" 
 						role="button" type="submit">
 						<span class="dl-button-label">
-							<span class="searchbar-submit-button-label">Rechercher</span>     
+							<span class="searchbar-submit-button-label">Rechercher</span>
 							<i class="fas fa-chevron-right"></i>
 						</span>
 					</button>								
                 </div>                
                 <div class="clearfix"></div>                   
                
-                <div class="card mb-4 animated slideInLeft" style="background-color: #081715!important; color: white!important">
+                <div class="card mb-4 animated slideInLeft text-dark" style="background-color: #fff!important;">
                         
-                    <h3 class="card-header text-center font-weight-bold text-uppercase py-4" style="position: relative; background-color: rgb(8, 23, 21)!important; color: white!important; ">
+                    <h3 class="card-header text-center font-weight-bold text-uppercase py-4" style="position: relative; background-color: rgb(255, 255, 255)!important; color: #111111!important; ">
                     
 
-                        <a class="btn btn-success float-left mb-3 mr-3 mr-2 bout"  id="print" style="cursor: pointer; background-color: white; color: #111111; border: none">
+                        <a class="btn btn-success float-left mb-3 mr-3 mr-2 bout"  id="print" style="cursor: pointer; background-color: #111111; color: white; border: none">
                             <i class="fas fa-print"></i>
                         </a>
-                        <a  href="liste.php" class="btn btn-success float-left mb-3 mx-auto mr-2 bout" id="edit"  style="cursor: pointer; background-color: white; color: #111111; border: none">
+                        <a  href="liste.php" class="btn btn-success float-left mb-3 mx-auto mr-2 bout" id="edit"  style="cursor: pointer; background-color: #111111; color: white; border: none">
                             <i class="fas fa-pen-alt"></i>
                         </a>
                             

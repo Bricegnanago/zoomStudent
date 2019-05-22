@@ -10,7 +10,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,400|Oxygen|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,400|Oxygen|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/search_bar.css">
     <link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -37,7 +38,7 @@
 						<div class="searchbar-input-wrapper">
                             <i class="fas fa-user-graduate"></i>
 							<div class="searchbar-input">
-								<input class="searchbar-input searchbar-place-input" placeholder="Quel étudiant?">
+								<input class="searchbar-input searchbar-place-input" id="search" placeholder="Quel étudiant?">
 							</div>
 							<button class="dl-button btn-icon Tappable-inactive searchbar-place-around-me-button  dl-button-size-normal"
 								role="button" type="button">
@@ -55,20 +56,21 @@
 							<span class="searchbar-submit-button-label">Rechercher</span>     
 							<i class="fas fa-chevron-right"></i>
 						</span>
-					</button>
-				</div>
-                               
-                <div class="clearfix"></div>   <!-- Editable table -->
-               
-                <div class="card mb-4 animated slideInUp text-white" style="background-color: #050f0e!important;">
+                    </button>        
+                    
+				</div>                               
+                  <!-- Editable table -->
+                  <div class="clearfix"></div>
+                  <ul class="list-group" id="suggestion" style="position : absolute; left : 35%; z-index : 99999"></ul>
+                <div class="card mb-4 animated slideInUp text-dark" style="">
                     <h3 class="card-header text-center text-dark font-weight-bold text-uppercase py-4" style="background-color: white!important; position : sticky">Classe Etudiant</h3>
-                    <form action="marquage.php" method="POST" style="position:relative">                           
+                    <form action="marquage.php" method="POST" style="position: relative">                           
                         
                         
                         <?php
                         
                         if(isset($_SESSION["flash"]["info"])){?>
-                        <div class="alert alert-info alert-dismissible fade show text-center"  role="alert" >
+                        <div class="alert alert-success alert-dismissible fade show text-center" role="alert" >
                             <?= $_SESSION["flash"]["info"] ?>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -109,27 +111,28 @@
                                         <div class="form-group col-lg-3 my-3">
                                             <label for="month">Selectionner mois:</label>
                                             <select class="form-control" id="month" name="month">
-                                                <!-- <option value=""></option> -->
-                                                <option value="Janvier" selected>Janvier</option>
-                                                <option value="Fevrier">Fevrier</option>
-                                                <option value="Mars">Mars</option>
-                                                <option value="Avril">Avril</option>
-                                                <option value="Mai">Mai</option>
-                                                <option value="Juin">Juin</option>
-                                                <option value="Juillet">Juillet</option>
-                                                <option value="Aout">Aout</option>
-                                                <option value="Septembre">Septembre</option>
-                                                <option value="Octobre">Octobre</option>
-                                                <option value="Novembre">Novembre</option>
-                                                <option value="Decembre">Decembre</option>                                                        
+                                                <!-- <option value=""></option> -->                                            
+                                            <option value="Decembre">Decembre</option>
+                                            <option value="Janvier" selected>Janvier</option>
+                                            <option value="Fevrier">Fevrier</option>
+                                            <option value="Mars">Mars</option>
+                                            <option value="Avril">Avril</option>
+                                            <option value="Mai">Mai</option>
+                                            <option value="Juin">Juin</option>
+                                            <option value="Juillet">Juillet</option>
+                                            <option value="Aout">Aout</option>
+                                            <option value="Septembre">Septembre</option>
+                                            <option value="Octobre">Octobre</option>
+                                            <option value="Novembre">Novembre</option>
+
                                             </select>
                                         </div>
                                         <div class="form-group col-lg-3 my-3">
                                             <label for="week">Selectionner la semaine:</label>
                                             <select class="form-control" id="week" name="week">
                                                 <!-- <option value=""></option> -->
-                                                <option value="Semaine 1" >Semaine 1</option>
-                                                <option value="Semaine 2" selected >Semaine 2</option>
+                                                <option value="Semaine 1" selected>Semaine 1</option>
+                                                <option value="Semaine 2">Semaine 2</option>
                                                 <option value="Semaine 3">Semaine 3</option>
                                                 <option value="Semaine 4">Semaine 4</option>
                                             </select>
@@ -153,7 +156,7 @@
                                 </div>
                             </div>                                                        
                         </div>
-                        <button type="submit" name="submit" class="btn btn-success col-3 btn-submit" style="">Envoyer</button>
+                        <button type="submit" name="submit" class="btn btn-success col-3 btn-submit my-button" style="">Envoyer</button>
                     </form>
                 </div>
                     
@@ -178,7 +181,7 @@
 <script>
 
     $(document).ready(function(){        
-     load_data("Janvier", "Semaine 1");
+     load_data();
 
      function load_data(query_month, query_week)
      {
@@ -222,7 +225,6 @@
                 
             });
 
-            
             console.log("old_month = " + $old_month);
             console.log("new_month = " + $new_month);
             console.log("old_week = " + $old_week);
@@ -242,7 +244,34 @@
             });
         $(".alert").alert();
         // $(".alert").alert('close');
+
+            // -------------------- Live search --------------------- //
+            $.ajaxSetup({ cache: false });
+            $('#search').keyup(function(){
+                $('#suggestion').html('');
+                $('#state').val('');
+                var searchField = $('#search').val();
+                var expression = new RegExp(searchField, "i");
+                $.getJSON('data.json', function(data) {
+                    $.each(data, function(key, value){
+                        if (value.nom.search(expression) != -1 || value.prenom.search(expression) != -1)
+                        {
+                            $('#suggestion').append('<li class="list-group-item link-class"><a href="student.view.php?id='+value.code+'"> '+value.nom+' | <span class="text-muted">'+value.prenom+'</span></a></li>');
+                        
+                        }
+                    });
+                    if($("#search").val() == ""){    
+                        $("#suggestion").empty();
+                    }
+                });
+            });
+            
+            $('#suggestion').on('click', 'li', function() {
+                var click_text = $(this).text().split('|');
+                $('#search').val($.trim(click_text[0]));
+                $("#suggestion").html('');
+            });
     });
-    </script>
+</script>
 </body>
 </html>

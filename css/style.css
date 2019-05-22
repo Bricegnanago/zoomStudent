@@ -192,9 +192,7 @@ form #notify:hover{
 	background-color: #a8791a;
 	cursor: pointer;
 }
-::placeholder {
-	/* font-size: .7em; */
-}
+
 .right{
 	position: absolute;
 	top : 40%;
@@ -248,10 +246,7 @@ strong {
 		 max-width: 70%;
 			margin: 0 auto;
 	}
-	form{
-		 
-			
-	}
+
 	form #notify {
 			font-size:.8rem;
 			padding: 1rem;
@@ -452,4 +447,20 @@ select option:hover{
 	transition: cubic-bezier(0.645, 0.045, 0.355, 1) all .4s !important;
 	background-color: #111111 !important;
 	color: white!important;
+}
+
+.round {
+	padding: 30px !important;
+	width: 100px;
+	height: 100px;
+	border: 3px solid white !important;
+	text-align: center!important;
+	border-radius: 50%;
+	position: relative;
+	
+}
+
+.my-button{
+	position: sticky!important; 
+	left: 220%!important; 
 }
