@@ -13,18 +13,21 @@
         $week = $_POST['week'];
         
         // debug(" tout les code etudiants " . $_SESSION['student']['code']);
-        require 'db.php';
+        require 'config/db.php';
                                         
         $db = Database::connect();
         // $statement = $db->query("SELECT etudiant.prenom, etudiant.nom, marquer.week, marquer.hour, marquer.date_naissance FROM etudiant INNER JOIN marquer WHERE etudiant.code = marquer.student_id");
         $statement = $db->query("SELECT etudiant.code, prenom, nom, marquer.months, marquer.week, marquer.HOUR, etudiant.date_naissance FROM etudiant INNER JOIN marquer WHERE etudiant.code = marquer.student_id AND marquer.months='$month' AND marquer.WEEK='$week'");
+        $result = $statement->fetch();
         // var_dump($statement);
         $i = 0;
         $etat = $statement->rowCount();
         if($etat > 0){
-            $_SESSION["flash"]["warning"] = "Saisie deja faite";
-            header('Location: liste.php');
-            exit;
+            echo $_SESSION["flash"]["warning"] = "Saisie deja faite" . "<br>";
+            echo "code etudiant : " . $result["code"] . "<br>";
+            echo "code etudiant : " . $result["nom"] . "<br>";
+            // header('Location: liste.php');
+            // exit;
                         
         }else{
             $i = 0;

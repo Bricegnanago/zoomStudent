@@ -14,7 +14,7 @@ session_start();
                 $errors["pass"] = "Mot de passe requis";
             }
             else{
-				require "db.php";
+				require "config/db.php";
 				$connect = Database::connect();
 				
                 $req = $connect->prepare("SELECT * FROM users WHERE username= :username OR email= :username");

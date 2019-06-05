@@ -14,19 +14,20 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,400|Oxygen|Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="css/all.css">
+    <!-- <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/all.css"> -->
     <link rel="stylesheet" href="css/search_bar.css">
     <link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/app.css">
-
+    
 	<title>ZOOM STUDENT</title>
 </head>
 <body>
 	<div class="page">
 
 		<div class="wrapper">
-			<img src="images/logo_AGITEL.png" alt="" class="animated bounce infinite logo mt-3" alt="Transparent MDB Logo " id="animated-img1 " style=" width: 200px; float: left"><a href="logout.php" class="float-right mr-5 logout text-white"><i class="fas fa-lock fa-3x"></i></a>
+			<img src="images/logo_AGITEL.png" alt="" class="animated bounce infinite logo mt-3" alt="Transparent MDB Logo " id="animated-img1 " style=" width: 200px; float: left"><a href="logout.php" class="float-right mr-5 logout text-white"><i class="fa-lock fa-3x"></i></a>
 
 	
 			<div class="container">
@@ -58,7 +59,7 @@
 					<button class="br-btn Tappable-inactive dl-button-primary searchbar-submit-button dl-button dl-button-size-normal" 
 						role="button" type="submit">
 						<span class="dl-button-label">
-							<span class="searchbar-submit-button-label">Rechercher</span>
+							<span class="searchbar-submit-button-label">Rechercher</span> &nbsp;&nbsp;
 							<i class="fas fa-chevron-right"></i>
 						</span>
 					</button>								
@@ -90,7 +91,7 @@
                                     
                                     <div class="form-group col-lg-12 my-3 m-auto ">
                                         <!-- <label for="month" style="float: left" style="font-size: 1.3rem;">Selectionner mois:</label> -->
-                                        <select name="multi_search_filter" id="multi_search_filter" multiple class="form-control" style="font-size: 1.2rem; background-color: #1a5f58; color: white;">
+                                        <select name="multi_search_filter" id="multi_search_filter" multiple class="form-control" style="font-size: 1.2rem; background-color: #fff; color: black;">
                                             <!-- <option value=""></option> -->                                            
                                             <option value="Decembre">Decembre</option>
                                             <option value="Janvier">Janvier</option>
@@ -114,10 +115,11 @@
                                                 <th>Nom</th>
                                                 <th>Prénom</th>
                                                 <th class="add_text"><?= $mois[date('n')]?></th>
+                                                <th class="add_text"> Heure justifié</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody style="font-size: 1.5rem!important;">
-                                                
+
                                                 </tbody>
                                             </table>
                                         </div>

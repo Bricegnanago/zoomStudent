@@ -85,6 +85,9 @@
     margin: auto;
     box-shadow: 0 0 20px 0 rgba(67, 95, 113, 0.2);
     border-radius: 8px;
+    position: sticky!important;
+    top: 20px;
+    z-index: 999;
 }
 .searchbar-query{
     -webkit-box-flex: 11;
@@ -103,3 +106,19 @@
     color: white!important;
 }
 
+#suggestion{
+    position : relative!important; 
+    width: 100% !important; 
+    /* top: 100px!important; */
+    z-index : 99999 ; 
+    overflow : auto!important;
+}
+#suggestion li{
+    color: #071311!important;
+    background-color: white !important;
+}
+
+#suggestion li:hover{
+    color: #111111!important;
+    background-color: white !important;
+}

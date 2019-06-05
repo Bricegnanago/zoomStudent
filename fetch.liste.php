@@ -49,7 +49,7 @@ if(isset($_POST["query_week"], $_POST["query_month"]))
       
       ?>
           <tr>
-            <td class="animated zoomInDown"><?= $row->code  ?></td>
+            
             <td class="animated zoomInDown"><?= $row->nom ?></td>
             <td class="animated zoomInDown"><?= $row->prenom ?></td>    
             <td class="animated zoomInDown"><?php
@@ -126,7 +126,6 @@ else
       
       ?>
           <tr>
-            <td class="animated zoomInDown"><?= $row->code  ?></td>
             <td class="animated zoomInDown"><?= $row->nom ?></td>
             <td class="animated zoomInDown"><?= $row->prenom ?></td>    
             <td class="animated zoomInDown"><?php

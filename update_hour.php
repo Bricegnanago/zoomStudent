@@ -1,7 +1,7 @@
 <!-- traitemant -->
 <?php
     require 'partials/functions.php';
-    require 'db.php';
+    require 'config/db.php';
     logged_only();
 
      if(!empty($_GET['code'])) 
@@ -38,7 +38,7 @@
 
         if(!empty($_POST["want_hour"])){
             $want_hour = checkInput($_POST["want_hour"]);
-            if($student_hour){
+            if($student_hour &&  ctype_digit($want_hour)){
                 echo "Je vais faire un update ";
                 $query = 
                 "UPDATE marquer INNER JOIN etudiant 
@@ -52,7 +52,7 @@
                 $_SESSION["flash"]["info"] = "Mise à jour effectuée avec success !";
                 header("Location: liste.php");
                 exit;
-            }else{
+            }else if(!$student_hour && ctype_digit($want_hour)){
                 echo "Je vais faire une insertion";
                 $query_insert = 
                 "INSERT INTO marquer(student_id, months,hour, week) 
@@ -63,7 +63,11 @@
 
                  header("Location: liste.php");
                  exit;
-            }           
+            }else{
+                $_SESSION["flash"]["data"] = "Saisie invalide !";                
+                header("Location: liste.php");
+                exit;
+            }
             
             Database::disconnect();
         }else{
@@ -134,8 +138,8 @@
                     <?php if(isset($check_statement_query_insert) || isset($checkInsert)):?>
                         <div class="round mx-auto mb-3"><i class="fas fa-check-double fa-7x mx-auto text-success animated bounceIn infinite" style="display: block; position: absolute; top: 50%; left : 50%; transform: translate(-50%, -50%);"></i></div> 
                     <?php endif ;?>                   
-                    <div class="card" style="box-shadow : 0 4px 8px  0; background-color: #050f0e!important">
-                        <h5 class="card-header h5 text-white bg-success text-center">Mise à jour heure / Mois</h5>
+                    <div class="card my-shadow" style="box-shadow : 0 4px 8px  0; background-color: #050f0e!important">
+                        <h5 class="card-header h5 text-dark bg-white text-center">Mise à jour heure / Mois</h5>
                         <div class="card-body text-white">
                             <?php if(isset($error_hour)) :?>
 
@@ -150,32 +154,27 @@
                                 <div class="form-group mx-auto">
                                     <?= $_SESSION["month"] . " - " . $_SESSION["week"];?>
                                 </div>
-                                <div class="form-group mx-auto" >
-                                    <div class="badge"><?= $heure ?></div>
+                                <div class="form-group mx-auto">
+                                    <span class="badge badge-info" style="font-size: 1.1rem"><?= $heure . " heure(s)"?></span>
                                 </div>
                                 <div class="form-group mx-auto">
-                                    <input type="text" name="want_hour" value="" style="box-shadow : 0 4px 8px 0; width: 30%; border-radius: 5px!important; " placeholder="ici">
+                                    <input type="text" name="want_hour" value="" id="want_hour" style="box-shadow : 0 4px 8px 0; width: 30%; border-radius: 5px!important; " placeholder="ici">
                                 </div>
-                                <button class="btn bg-success text-white" type="submit" name="update" style="width: 200px!important; height: 60px!important; font-size: 1.2rem;">Mettre à jour</button>
+                                <button class="btn text-white" type="submit" id="update" name="update" style="width: 200px!important; height: 60px!important; font-size: 1.2rem;">Mettre à jour</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-                    
-    
-
-
         </div>
-
     </div>
    
 
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/popper.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
 </body>
 </html>
