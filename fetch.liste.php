@@ -4,32 +4,39 @@ session_start();
 $connect = new PDO('mysql:host=localhost;dbname=agitel', "root", "");
 $hourArray = array();
 $mois  = array('', "Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre");
-if(isset($_POST["query_week"], $_POST["query_month"]))
+if(isset($_POST["query_week"], $_POST["query_month"], $_POST["filiere"]))
 {
   
-  
+  // $_SESSION["fil"] = $_POST["filiere"];
   $search_month = trim(htmlspecialchars(stripcslashes($_POST["query_month"])));
   $search_week = trim(htmlspecialchars(stripcslashes($_POST["query_week"])));
+  $filiere = trim(htmlspecialchars(stripcslashes($_POST["filiere"])));
+  $filiere = strtolower($filiere);
   $_SESSION["month"] = $search_month;
   $_SESSION["week"] = $search_week;
   
+  
 
-
-  $query = "SELECT * FROM etudiant";
+  $query = "SELECT * FROM etudiant where classe = '$filiere'";
   $sql = "SELECT marquer.hour AS heure, etudiant.nom, marquer.student_id from marquer LEFT JOIN etudiant ON marquer.student_id = etudiant.CODE  WHERE 
-    marquer.months = ? AND marquer.WEEK = ? ORDER BY etudiant.nom";
-    // $hourArray = array();    
-    // $result = $connect->query($query);
+  marquer.months = ? AND marquer.WEEK = ? AND etudiant.classe=? ORDER BY etudiant.nom";
+  // echo "Filiere :" . $filiere;
+  // $hourArray = array();    
+  // $result = $connect->query($query);
     
       // $rem = [];
-    
+
+      
     $result = $connect->query($query);
+    if($result->rowCount() > 0){
+      $_SESSION["fil"] = $_POST["filiere"];
+    }
     $boolian = false;
     while($row = $result->fetchObject()){
       $heure = "0";
       
       $result_hour = $connect->prepare($sql);
-      $result_hour->execute(array($search_month, $search_week)); 
+      $result_hour->execute(array($search_month, $search_week,$filiere)); 
       if(!$result_hour->rowCount()){
         $boolian_fetch = true;
       }
@@ -87,14 +94,17 @@ else
   $_POST["query_week"] = "Semaine 1";
   $search_month = trim(htmlspecialchars(stripcslashes($_POST["query_month"])));
   $search_week = trim(htmlspecialchars(stripcslashes($_POST["query_week"])));
+  // $filiere = trim(htmlspecialchars(stripcslashes($_POST["filiere"])));
   $_SESSION["month"] = $search_month;
   $_SESSION["week"] = $search_week;
   
-
-
-  $query = "SELECT * FROM etudiant";
+  $filiere = 'LP3INFO';
+  $filiere = strtolower($filiere);
+  $query = "SELECT * FROM etudiant where classe = '$filiere'";
   $sql = "SELECT marquer.hour AS heure, etudiant.nom, marquer.student_id from marquer LEFT JOIN etudiant ON marquer.student_id = etudiant.CODE  WHERE 
-    marquer.months = ? AND marquer.WEEK = ? ORDER BY etudiant.nom";
+    marquer.months = ? AND marquer.WEEK = ? AND etudiant.classe= ? ORDER BY etudiant.nom";
+    echo $sql . "<br>";
+    echo $filiere;
     // $hourArray = array();    
     // $result = $connect->query($query);
     
@@ -106,7 +116,7 @@ else
       $heure = "0";
       
       $result_hour = $connect->prepare($sql);
-      $result_hour->execute(array($search_month, $search_week)); 
+      $result_hour->execute(array($search_month, $search_week, $filiere)); 
       if(!$result_hour->rowCount()){
         $boolian_fetch = true;
       }
@@ -124,7 +134,7 @@ else
         }
       }
       
-      ?>
+          ?>
           <tr>
             <td class="animated zoomInDown"><?= $row->nom ?></td>
             <td class="animated zoomInDown"><?= $row->prenom ?></td>    
@@ -134,7 +144,7 @@ else
                 <?php
               }else{?>              
                 <input type="text" name="heure[]" value="<?= $heure ?>" style="box-shadow : 0 8px 4px 0 rgba(0,0,0, .3)!important;  width: 70px!important; border-radius : 5px!important; background-color: #ffffff;
-    color: #080000;" class="animated zoomInDown"> <?php
+            color: #080000;" class="animated zoomInDown"> <?php
               }
               
               ?>
@@ -155,7 +165,7 @@ else
     
           </tr>
           <?php
-        }
+    }
   // echo "Bonjour";
 }
 

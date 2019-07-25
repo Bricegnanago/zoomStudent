@@ -9,7 +9,7 @@
 
     if($_POST["gethour"] != '' and ctype_digit($_POST["gethour"])){
         $search_text = $_POST["gethour"]; // conversion en donnée numérique
-        echo $search_text;
+        // echo $search_text;
         if($search_text <= $_SESSION["hour"] && $search_text > 0){
             $months = $_SESSION["months"];
             // verification des données / voir si une heure n'a pas encore déja été saisie à ce mois
@@ -21,8 +21,8 @@
                 $statement = $connect->prepare($query);
                 $result = $statement->execute([$search_text, $months, $id]);
                 if($result){        
-                    echo $search_text;            
-                    echo "<div class='alert alert-success'>Donnée enregistré avec succès</div>";                    
+                    // echo $search_text;
+                    echo "<div class='alert alert-success animated bounceIn' id='flashM'>Donnée enregistré avec succès au mois '$months'</div>";
                 }    
             }
             else{
@@ -30,28 +30,19 @@
                 $statement = $connect->prepare($query);
                 $result = $statement->execute([$search_text, $months, $id]);
                 if($result){
-                    echo "<div class='alert alert-success'>Mis à jour effectuée avec succès</div>";
+                    echo "<div class='alert alert-success animated bounceIn' id='flashM'>Mis à jour effectuée avec succès au mois de '$months'</div>";
                 }
             }        
         // var_dump($result_justifier);        
         
         }else{
-            echo "<div class='alert alert-danger'>Nombre invalide lisez l'indication ci-dessus</div>";
+            echo "<div class='alert alert-danger animated bounceIn'>Nombre invalide lisez l'indication ci-dessus</div>";
         }
             
                 
     }else{
-        echo "<div class='alert alert-danger'>Nombre entier requis</div>";
+        echo "<div class='alert alert-danger animated bounceIn'>Nombre entier requis</div>";
     }
       
 
 ?>
-
-<script src="js/jquery-3.2.1.min.js"></script>
-
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
-    <script src="js/script.js"></script>

@@ -1,0 +1,273 @@
+[
+    {
+        "filiere": "LP1INFO",
+        "desc": "Licence 1 Profesionnelle Informatique"
+    },
+    {
+        "filiere": "LP2INFO",
+        "desc": "Licence 2 Profesionnelle Informatique"
+    }
+    ,
+    {
+        "filiere": "LP3INFO",
+        "desc": "Licence 3 Profesionnelle Informatique"
+    }
+    ,
+    {
+        "filiere": "IDA1",
+        "desc": "Informatique Développeur d'Apllication 1"
+    }
+    ,
+    {
+        "filiere": "IDA2",
+        "desc": "Informatique Développeur d'Apllication 2"
+    }
+    ,
+    {
+        "filiere": "M1INFO",
+        "desc": "Master 1 Informatique"
+    }
+    ,
+    {
+        "filiere": "M2INFO",
+        "desc": "Master 2 Informatique"
+    }
+    ,
+    {
+        "filiere": "LP1RH",
+        "desc": "Licence 1 Profesionnelle Ressources Humaines"
+    },
+    {
+        "filiere": "LP2RH",
+        "desc": "Licence 2 Profesionnelle Ressources Humaines"
+    }
+    ,
+    {
+        "filiere": "LP3RH",
+        "desc": "Licence 3 Profesionnelle Ressources Humaines"
+    }
+    ,
+    {
+        "filiere": "BTS1RH",
+        "desc": "Brevet Technicien Superieur en Ressources Humaines"
+    }
+    ,
+    {
+        "filiere": "BTS2RH",
+        "desc": "Brevet Technicien Superieur en Ressources Humaines"
+    }
+    ,
+    {
+        "filiere": "M1RH",
+        "desc": "Master 1 Ressources Humaines"
+    }
+    ,
+    {
+        "filiere": "M2RH",
+        "desc": "Master 2 Ressources Humaines"
+    }
+    ,
+    {
+        "filiere": "LP1Log",
+        "desc": "Licence 1 Profesionnelle Logistique"
+    },
+    {
+        "filiere": "LP2Log",
+        "desc": "Licence 2 Profesionnelle Logistique"
+    }
+    ,
+    {
+        "filiere": "LP3Log",
+        "desc": "Licence 3 Profesionnelle Logistique"
+    }
+    ,
+    {
+        "filiere": "BTS1Log",
+        "desc": "Brevet Technicien Superieur en Logistique"
+    }
+    ,
+    {
+        "filiere": "BTS2Log",
+        "desc": "Brevet Technicien Superieur en Logistique"
+    }
+    ,
+    {
+        "filiere": "M1Log",
+        "desc": "Master 1 Logistique"
+    }
+    ,
+    {
+        "filiere": "M2Log",
+        "desc": "Master 2 Logistique"
+    }
+    ,
+    {
+        "filiere": "LP1ACG",
+        "desc": "Licence 1 Profesionnelle Audit Controle Gestion"
+    },
+    {
+        "filiere": "LP2ACG",
+        "desc": "Licence 2 Profesionnelle Audit Controle Gestion"
+    }
+    ,
+    {
+        "filiere": "LP3ACG",
+        "desc": "Licence 3 Profesionnelle Audit Controle Gestion"
+    }
+    ,
+    {
+        "filiere": "BTS1ACG",
+        "desc": "Brevet Technicien Superieur en Audit Controle Gestion"
+    }
+    ,
+    {
+        "filiere": "BTS2ACG",
+        "desc": "Brevet Technicien Superieur en Audit Controle Gestion"
+    }
+    ,
+    {
+        "filiere": "M1ACG",
+        "desc": "Master 1 Audit Controle Gestion"
+    }
+    ,
+    {
+        "filiere": "M2ACG",
+        "desc": "Master 2 Audit Controle Gestion"
+    }
+    ,
+    {
+        "filiere": "LP1TCF",
+        "desc": "Licence 1 Profesionnelle Finance Comptabilité"
+    },
+    {
+        "filiere": "LP2TCF",
+        "desc": "Licence 2 Profesionnelle Finance Comptabilité"
+    }
+    ,
+    {
+        "filiere": "LP3TCF",
+        "desc": "Licence 3 Profesionnelle Finance Comptabilité"
+    }
+    ,
+    {
+        "filiere": "BTS1TCF",
+        "desc": "Brevet Technicien Superieur en Finance Comptabilité"
+    }
+    ,
+    {
+        "filiere": "BTS2TCF",
+        "desc": "Brevet Technicien Superieur en Finance Comptabilité"
+    }
+    ,
+    {
+        "filiere": "M1TCF",
+        "desc": "Master 1 Finance Comptabilité"
+    }
+    ,
+    {
+        "filiere": "M2TCF",
+        "desc": "Master 2 Finance Comptabilité"
+    }
+    ,
+    {
+        "filiere": "LP1PUB",
+        "desc": "Licence 1 Profesionnelle Publicité"
+    },
+    {
+        "filiere": "LP2PUB",
+        "desc": "Licence 2 Profesionnelle Publicité"
+    }
+    ,
+    {
+        "filiere": "LP3PUB",
+        "desc": "Licence 3 Profesionnelle Publicité"
+    }
+    ,
+    {
+        "filiere": "BTS1CV",
+        "desc": "Brevet Technicien Superieur en Communication Visuelle"
+    }
+    ,
+    {
+        "filiere": "BTS2CV",
+        "desc": "Brevet Technicien Superieur en Communication Visuelle"
+    }
+    ,
+    {
+        "filiere": "M1PUB",
+        "desc": "Master 1 Publicité"
+    }
+    ,
+    {
+        "filiere": "M2PUB",
+        "desc": "Master 2 Publicité"
+    }
+    ,
+    {
+        "filiere": "LP1CI",
+        "desc": "Licence 1 Profesionnelle Commere International"
+    },
+    {
+        "filiere": "LP2CI",
+        "desc": "Licence 2 Profesionnelle Commere International"
+    }
+    ,
+    {
+        "filiere": "LP3CI",
+        "desc": "Licence 3 Profesionnelle Commere International"
+    }
+    ,
+    {
+        "filiere": "BTS1CI",
+        "desc": "Brevet Technicien Superieur en Commere International"
+    }
+    ,
+    {
+        "filiere": "BTS2CI",
+        "desc": "Brevet Technicien Superieur en Commere International"
+    }
+    ,
+    {
+        "filiere": "M1CI",
+        "desc": "Master 1 Commere International"
+    }
+    ,
+    {
+        "filiere": "M2CI",
+        "desc": "Master 2 Commere International"
+    }
+    ,
+    {
+        "filiere": "LP1MN",
+        "desc": "Licence 1 Profesionnelle Marketing et Négociation"
+    },
+    {
+        "filiere": "LP2MN",
+        "desc": "Licence 2 Profesionnelle Marketing et Négociation"
+    }
+    ,
+    {
+        "filiere": "LP3MN",
+        "desc": "Licence 3 Profesionnelle Marketing et Négociation"
+    }
+    ,
+    {
+        "filiere": "BTS1MN",
+        "desc": "Brevet Technicien Superieur en Marketing et Négociation"
+    }
+    ,
+    {
+        "filiere": "BTS2MN",
+        "desc": "Brevet Technicien Superieur en Marketing et Négociation"
+    }
+    ,
+    {
+        "filiere": "M1MN",
+        "desc": "Master 1 Marketing et Négociation"
+    }
+    ,
+    {
+        "filiere": "M2MN",
+        "desc": "Master 2 Marketing et Négociation"
+    }
+]
